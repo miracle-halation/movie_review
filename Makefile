@@ -9,6 +9,7 @@ install:
 	@make fresh
 create-project:
 	mkdir -p src
+	mkdir -p client
 	docker compose build
 	docker compose up -d
 	docker compose exec app composer create-project --prefer-dist laravel/laravel .
@@ -40,6 +41,8 @@ web:
 	docker compose exec web bash
 app:
 	docker compose exec app bash
+front:
+	docker compose exec nextjs ash
 tinker:
 	docker compose exec app php artisan tinker
 dump:
